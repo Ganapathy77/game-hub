@@ -1,4 +1,5 @@
 import {
+  Heading,
   HStack,
   List,
   ListItem,
@@ -12,6 +13,9 @@ const GenreListSkeleton = () => {
   ];
   return (
     <>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
       <List>
         {data.map((genre) => (
           <ListItem key={genre} paddingY="5px">
