@@ -24,32 +24,28 @@ const PlatformSelector = ({ onSelectPlatforms, selectedPlatform }: Props) => {
 
   if (isLoading)
     return (
-      <Box paddingX={10}>
-        {/* <Spinner /> */}
-        <Menu>
-          <Skeleton borderRadius={4} height="40px" width="132px" />
-        </Menu>
-      </Box>
+      // <Spinner />
+      <Menu>
+        <Skeleton borderRadius={4} height="40px" width="132px" />
+      </Menu>
     );
   return (
     <>
-      <Box paddingX={10}>
-        <Menu>
-          <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-            {selectedPlatform?.name || "Platforms"}
-          </MenuButton>
-          <MenuList>
-            {data.map((platform) => (
-              <MenuItem
-                key={platform.id}
-                onClick={() => onSelectPlatforms(platform)}
-              >
-                {platform.name}
-              </MenuItem>
-            ))}
-          </MenuList>
-        </Menu>
-      </Box>
+      <Menu>
+        <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+          {selectedPlatform?.name || "Platforms"}
+        </MenuButton>
+        <MenuList>
+          {data.map((platform) => (
+            <MenuItem
+              key={platform.id}
+              onClick={() => onSelectPlatforms(platform)}
+            >
+              {platform.name}
+            </MenuItem>
+          ))}
+        </MenuList>
+      </Menu>
     </>
   );
 };
