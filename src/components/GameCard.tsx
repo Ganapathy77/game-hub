@@ -17,8 +17,7 @@ const GameCard = ({ game }: Props) => {
           height={"250px"}
         />
         <CardBody>
-          <Heading fontSize={"2xl"}>{game.name}</Heading>
-          <HStack justifyContent="space-between">
+          <HStack justifyContent="space-between" marginBottom={3}>
             {game.parent_platforms && (
               <PlatformIconList
                 platforms={game.parent_platforms.map(
@@ -28,6 +27,7 @@ const GameCard = ({ game }: Props) => {
             )}
             <CriticScore score={game.metacritic} />
           </HStack>
+          <Heading fontSize={"2xl"}>{game.name}</Heading>
         </CardBody>
       </Card>
     </>
