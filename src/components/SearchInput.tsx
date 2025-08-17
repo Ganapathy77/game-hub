@@ -1,6 +1,12 @@
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import {
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+} from "@chakra-ui/react";
 import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 interface Props {
   onSearch: (searchText: string) => void;
@@ -24,6 +30,22 @@ const SearchInput = ({ onSearch }: Props) => {
             variant="filled"
             placeholder="Search games..."
           />
+          {serchRef.current?.value && (
+            <InputRightElement
+              children={
+                <IoCloseCircleOutline
+                  size={20}
+                  cursor="pointer"
+                  onClick={() => {
+                    if (serchRef.current) {
+                      serchRef.current.value = "";
+                      onSearch(""); // 👈 reset search results
+                    }
+                  }}
+                />
+              }
+            />
+          )}
         </InputGroup>
       </form>
     </>
