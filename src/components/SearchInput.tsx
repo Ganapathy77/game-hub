@@ -13,32 +13,32 @@ interface Props {
 }
 
 const SearchInput = ({ onSearch }: Props) => {
-  const serchRef = useRef<HTMLInputElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
   return (
     <>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          if (serchRef.current) onSearch(serchRef.current.value);
+          if (searchRef.current) onSearch(searchRef.current.value);
         }}
       >
         <InputGroup>
           <InputLeftElement children={<BsSearch />} />
           <Input
-            ref={serchRef}
+            ref={searchRef}
             borderRadius={20}
             variant="filled"
             placeholder="Search games..."
           />
-          {serchRef.current?.value && (
+          {searchRef.current?.value && (
             <InputRightElement
               children={
                 <IoCloseCircleOutline
                   size={20}
                   cursor="pointer"
                   onClick={() => {
-                    if (serchRef.current) {
-                      serchRef.current.value = "";
+                    if (searchRef.current) {
+                      searchRef.current.value = "";
                       onSearch(""); // 👈 reset search results
                     }
                   }}
